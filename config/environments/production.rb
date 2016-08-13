@@ -10,7 +10,7 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => 'airbnb-test.herokuapp.com/', :protocol => 'https'}
+  config.action_mailer.default_url_options = { :host => 'airbnb-test.herokuapp.com', :protocol => 'https'}
 
 
 
@@ -80,6 +80,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
 end
