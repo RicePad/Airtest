@@ -10,6 +10,8 @@ gem 'devise'
 gem 'toastr-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'figaro'
+
 
 
 
