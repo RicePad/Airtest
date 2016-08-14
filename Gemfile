@@ -8,6 +8,8 @@ gem 'rails', '4.2.6'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'toastr-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 
 
