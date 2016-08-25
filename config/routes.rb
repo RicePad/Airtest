@@ -1,41 +1,39 @@
 Rails.application.routes.draw do
 
 
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-  root 'pages#home'
+root 'pages#home'
 
   devise_for 	:users,
-  			      :path => '',
-  				    :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
-  				    :controllers => {:omniauth_callbacks => 'omniauth_callbacks',
-                               :registrations => 'registrations'}
-
+  						:path => '',
+  						:path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
+  						:controllers => {:omniauth_callbacks => 'omniauth_callbacks',
+  														 :registrations => 'registrations'
+  														}
 
   resources :users, only: [:show]
+  resources :rooms
+  resources :photos
 
   resources :rooms do
     resources :reservations, only: [:create]
+  end
+
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
   end
 
   resources :rooms do
     resources :reviews, only: [:create, :destroy]
   end
 
-  get 'preload', to: 'reservations#preload'
-  get 'preview', to: 'reservations#preview'
-  get 'your_trips', to: "reservations#your_trips"
-  get 'your_reservations', to: "reservations#your_reservations"
+  get '/preload' => 'reservations#preload'
+  get '/preview' => 'reservations#preview'
 
-  post '/notify', to: 'reservations#notify'
-  post '/your_trips', to: 'reservations#your_trips'
+  get '/your_trips' => 'reservations#your_trips'
+  get '/your_reservations' => 'reservations#your_reservations'
 
-
-  resources :photos
-  resources :conversations, only: [:index, :create] do
-    resources :messages, only: [:index, :create]
-  end
+  post '/notify' => 'reservations#notify'
+  post '/your_trips' => 'reservations#your_trips'
 
 
   # You can have the root of your site routed with "root"
