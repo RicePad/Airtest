@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   get 'your_trips', to: "reservations#your_trips"
   get 'your_reservations', to: "reservations#your_reservations"
 
+  post '/notify', to: 'reservations#notify'
+  post '/your_trips', to: 'reservations#your_trips'
+
 
   resources :photos
   resources :conversations, only: [:index, :create] do
