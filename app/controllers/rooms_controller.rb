@@ -9,6 +9,15 @@ class RoomsController < ApplicationController
   def show
     @photos = @room.photos
 
+    #check booking only for the right guest to make a valid review
+    @booked = Reservation.where("room_id = ? AND user_id = ?", @room.id, current_user.id).present? if current_user
+
+    #check list of reviews that belongs to the room
+    @reviews = @room.reviews
+
+    #check if current user already made a review or not, users are only allowed to review once.
+    @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
+
   end
 
   def new

@@ -14,6 +14,10 @@ gem 'figaro'
 gem 'omniauth-google-oauth2'
 gem 'paperclip'
 gem 'geocoder'
+gem "private_pub"
+gem "thin"
+gem 'jquery-ui-rails'
+
 
 
 

@@ -14,9 +14,25 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:show]
-  resources :rooms
-  resources :photos
 
+  resources :rooms do
+    resources :reservations, only: [:create]
+  end
+
+  resources :rooms do
+    resources :reviews, only: [:create, :destroy]
+  end
+
+  get 'preload', to: 'reservations#preload'
+  get 'preview', to: 'reservations#preview'
+  get 'your_trips', to: "reservations#your_trips"
+  get 'your_reservations', to: "reservations#your_reservations"
+
+
+  resources :photos
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
 
 
   # You can have the root of your site routed with "root"
