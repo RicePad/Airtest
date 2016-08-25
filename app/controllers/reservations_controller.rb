@@ -26,15 +26,15 @@ class ReservationsController < ApplicationController
 		if @reservation
 			# send request to PayPal
 			values = {
-				business: 'demo.code4startup-facilitator@gmail.com',
+				business: 'SirJohnAndrewslee-facilitator@gmail.com',
 				cmd: '_xclick',
 				upload: 1,
-				notify_url: 'http://cdc04fc3.ngrok.io/notify',
+				notify_url: 'http://currentrails-202727.nitrousapp.com/notify',
 				amount: @reservation.total,
 				item_name: @reservation.room.listing_name,
 				item_number: @reservation.id,
 				quantity: '1',
-				return: 'http://cdc04fc3.ngrok.io/your_trips'
+				return: 'http://currentrails-202727.nitrousapp.com/your_trips'
 			}
 
 			redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
