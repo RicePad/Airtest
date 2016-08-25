@@ -15,6 +15,9 @@ class Room < ActiveRecord::Base
   validates :listing_name, presence: true, length: {maximum: 50}
   validates :summary, presence: true, length: {maximum: 500}
   validates :address, presence: true
+  validates :price, presence: true, numericality: true
+
+
 
   def average_rating
     reviews.count == 0 ? 0 : reviews.average(:star).round(2)

@@ -132,7 +132,7 @@
 		<br>
 		<hr>
 
-  <!-- Reviews -->
+		<!-- Reviews -->
 		<div class="row">
 			<div class="col-md-12">
 				<h3>Reviews <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
@@ -146,7 +146,6 @@
 				</div>
 			</div>
 		</div>
-
 
 		<!-- Google Map -->
 		<div class="row">
@@ -174,7 +173,7 @@
 
 		        var marker = new google.maps.Marker({
 		        	position: new google.maps.LatLng(<%= @room.latitude %>, <%= @room.longitude %>),
-		        	title: "AirTest"
+		        	title: "UVESTY"
 		        });
 
 		        marker.setMap(map);
@@ -194,7 +193,7 @@
 				<div class="col-md-4">
 					<div class="panel panel-default">
 						<div class="panel-heading preview">
-							<%= image_tag room.photos[0].image.url(:medium) %>
+							<%= image_tag room.photos[0].image.url(:medium)  if room.photos.present? %>
 						</div>
 						<div class="panel-body">
 							<%= link_to room.listing_name, room %><br>
@@ -202,14 +201,6 @@
 						</div>
 					</div>
 				</div>
-<script>
-			$('#average_rating').raty({
-				path: '/assets',
-				readOnly: true,
-				score: <%= @room.average_rating %>
-			});
-		</script>
-
 
 			<% end %>
 		</div>
@@ -217,3 +208,11 @@
 
 	</div>
 </div>
+
+<script>
+	$('#average_rating').raty({
+		path: '/assets',
+		readOnly: true,
+		score: <%= @room.average_rating %>
+	});
+</script>

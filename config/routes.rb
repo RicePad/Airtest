@@ -35,6 +35,9 @@ root 'pages#home'
   post '/notify' => 'reservations#notify'
   post '/your_trips' => 'reservations#your_trips'
 
+  get '/search' => 'pages#search'
+
+
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
