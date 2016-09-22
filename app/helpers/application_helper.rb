@@ -6,5 +6,5 @@ module ApplicationHelper
   else
 		"https://www.gravatar.com/avatar/#{gravatar_id}.jpg?d=identicon&s=150"
   end
- end
+  end
 end

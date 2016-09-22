@@ -1,25 +1,8 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
 
-body {
+body {  
   color: #565a5c;
   background-color: #F8F8F8;
 }
@@ -50,13 +33,13 @@ body {
 .btn-primary.btn:hover, .btn-primary.btn:focus {
   border-color: #ff7e82;
   border-bottom-color: #fa0008;
-  background-color: #ff7e82;
+  background-color: #ff7e82;  
   outline:none;
 }
 
 .btn-primary.btn:active {
   border-color: #e00007;
-  background-color: #e00007;
+  background-color: #e00007;  
   outline:none;
 }
 
@@ -64,7 +47,7 @@ body {
   width: 100%;
   border-radius: 2px;
   padding: 10px 0;
-  margin-top: 10px;
+  margin-top: 10px; 
 }
 
 .panel-default .panel-heading {
@@ -171,9 +154,9 @@ select {
 .select:before {
   content: '\25bc';
   font-size: 1.2em;
-  position: absolute;
+  position: absolute;  
   color: #82888A;
-  top: 40px;
+  top: 40px;  
   right: 30px;
   transform: scale(0.84, 0.42);
 }
@@ -225,7 +208,7 @@ input[type="checkbox"]:checked:before {
   padding: 0;
 }
 
-.panel-heading.preview img{
+.panel-heading.preview img{  
   width: 100%;
 }
 
@@ -265,7 +248,7 @@ input[type="checkbox"]:checked:before {
   background-color: #F4F4F5;
 }
 
-#wrapper {
+#wrapper { 
   width:960px;
   margin:0 auto;
 }
@@ -284,4 +267,22 @@ input[type="checkbox"]:checked:before {
 
 #article {
   width:560px;
+}
+
+.discovery-card {
+  background-size: cover;
+  background-position: center;
+  height: 326px;
+}
+
+.va-container {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.va-middle {
+  color: #fff;
+  vertical-align: middle;
+  display: table-cell;
 }

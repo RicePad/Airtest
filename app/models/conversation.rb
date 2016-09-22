@@ -14,5 +14,20 @@ class Conversation < ActiveRecord::Base
 		where("(conversations.sender_id = ? AND conversations.recipient_id = ?) OR (conversations.sender_id = ? AND conversations.recipient_id = ?)",
 					sender_id, recipient_id, recipient_id, sender_id)
 	end
+SQL = <<-EOSQL
+SELECT conversations.id
+FROM messages INNER JOIN conversations
+ON messages.conversation_id = conversations.id
+WHERE conversations.sender_id = :id OR conversations.recipient_id = :id
+GROUP BY conversations.id
+EOSQL
+
+
+
+    def self.for_user(user)
+      conversation_ids = Conversation.find_by_sql([SQL, id: user.id]).map{|x| x.id }
+      Conversation.where(id: conversation_ids)
+    end
+
 
 end
